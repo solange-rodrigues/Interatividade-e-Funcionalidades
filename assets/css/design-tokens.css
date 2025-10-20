@@ -1,0 +1,49 @@
+/* 🎨 DESIGN TOKENS - Base do Design System com as cores originais */
+:root {
+    /* ==============================
+      🎨 PALETA DE CORES (ORIGINAL)
+      ============================== */
+    --cor-primaria-base: #2E7D32; /* Verde Esmeralda (Principal) */
+    --cor-primaria-claro: #4CAF50; 
+    --cor-primaria-escuro: #1B5E20; 
+    
+    --cor-secundaria-base: #E67E22; /* Laranja (Ação/CTA) */
+    --cor-secundaria-escuro: #D35400; /* Laranja Escuro (Hover) */
+    
+    --cor-success: #4CAF50;
+    --cor-info: #3498DB; 
+    --cor-danger: #E74C3C;
+    
+    --cor-neutra-fundo: #F9F9F9; /* Fundo Claro */
+    --cor-neutra-texto: #5D4037; /* Marrom para Textos */
+    --cor-neutra-borda: #E0E0E0; /* Borda/Divisor */
+
+    /* ==============================
+      🔠 TIPOGRAFIA (ORIGINAL)
+      ============================== */
+    --font-family: 'Nunito', sans-serif;
+    --line-height: 1.6;
+
+    --tamanho-texto-xlg: 3rem; 
+    --tamanho-texto-lg: 2rem; 
+    --tamanho-texto-md: 1.5rem; 
+    --tamanho-texto-base: 1rem; 
+    --tamanho-texto-sm: 0.875rem; 
+
+    /* ==============================
+      📏 ESPAÇAMENTO MODULAR (ORIGINAL)
+      ============================== */
+    --espaco-xs: 8px;
+    --espaco-sm: 16px; 
+    --espaco-md: 24px;
+    --espaco-lg: 32px;
+    --espaco-xl: 48px;
+    --espaco-xxl: 64px;
+
+    /* ==============================
+      🧱 BORDAS E SOMBRAS (ORIGINAL)
+      ============================== */
+    --raio-borda: 8px;
+    --sombra-padrao: 0 4px 8px rgba(0,0,0,0.1);
+    --sombra-elevada: 0 8px 16px rgba(0,0,0,0.15);
+}
