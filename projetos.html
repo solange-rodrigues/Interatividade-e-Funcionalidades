@@ -12,7 +12,7 @@
     <title>Nossos Projetos - ONG Anjos de Patas</title>
 </head>
 
-<body>
+<body data-page="projetos">
 
     <div class="container">
 
@@ -20,17 +20,18 @@
             <img src="assets/img/logo-animais.png" alt="Logotipo da ONG Anjos de Patas">
             <nav>
                 <ul>
-                    <li><a href="index.html">Início</a></li>
+                    <li><a href="index.html" data-link>Início</a></li>
                     
                     <li class="dropdown">
-                        <a href="projetos.html">Nossos Projetos <span class="arrow">▾</span></a>
+                        <a href="projetos.html" data-link>Nossos Projetos <span class="arrow">▾</span></a>
                         <ul class="dropdown-content">
-                            <li><a href="#resgate">Resgate e Cuidado</a></li>
-                            <li><a href="#adocao">Feiras de Adoção</a></li>
-                            <li><a href="#apoio">Doação e Apoio</a></li>
+                            <li><a href="#resgate" data-link>Resgate e Cuidado</a></li>
+                            <li><a href="#adocao" data-link>Feiras de Adoção</a></li>
+                            <li><a href="#apoio" data-link>Doação e Apoio</a></li>
                         </ul>
                     </li>
-                    <li><a href="cadastro.html">Participe</a></li>
+
+                    <li><a href="cadastro.html" data-link>Participe</a></li>
                 </ul>
             </nav>
         </header>
@@ -38,30 +39,15 @@
         <main>
             <h1>Conheça Nossos Projetos e Como Ajudar</h1>
 
-            <div class="projects-grid">
-                
-                <div class="card" id="resgate">
-                    <article>
-                        <img src="assets/img/resgate.png" alt="Voluntária abraçando um cachorro resgatado com olhar de carinho">
-                        <h2>Projeto Resgate e Cuidado</h2>
-                        <p>Atuamos na linha de frente, resgatando animais em situação de risco, oferecendo cuidados veterinários e preparando-os para um novo lar.</p>
-                    </article>
-                </div>
-
-                <div class="card" id="adocao">
-                    <article>
-                        <img src="assets/img/feira-adocao.png" alt="Família feliz adotando um cão vira-lata em uma feira de adoção">
-                        <h2>Feiras de Adoção Responsável</h2>
-                        <p>Regularmente, organizamos eventos para promover o encontro entre nossos anjinhos e suas futuras famílias. Adoção é um ato de amor!</p>
-                    </article>
-                </div>
-
+            <!-- ESTE DIV FICARÁ VAZIO. O JAVASCRIPT (templates.js) IRÁ INJETAR O CONTEÚDO AQUI. -->
+            <div class="projects-grid" id="projectsGrid">
+                <!-- Conteúdo será injetado pelo templates.js -->
             </div>
             
             <section class="call-to-action" id="apoio">
                 <h2>Como Você Pode Fazer a Diferença</h2>
                 <p>Seu tempo ou sua contribuição financeira são essenciais para continuarmos salvando vidas. Junte-se a nós!</p>
-                <a href="cadastro.html" class="cta-button">Quero Ajudar!</a>
+                <a href="cadastro.html" class="cta-button" data-link>Quero Ajudar!</a>
             </section>
             
         </main>
@@ -69,13 +55,56 @@
         <footer>
             <nav>
                 <ul>
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="projetos.html">Nossos Projetos</a></li>
-                    <li><a href="cadastro.html">Participe</a></li>
+                    <li><a href="index.html" data-link>Início</a></li>
+                    <li><a href="projetos.html" data-link>Nossos Projetos</a></li>
+                    <li><a href="cadastro.html" data-link>Participe</a></li>
                 </ul>
             </nav>
             <p>&copy; 2025 ONG Anjos de Patas. Todos os direitos reservados.</p>
         </footer>
 
-    </div> </body>
+        <!-- SCRIPTS JS -->
+        <script src="assets/js/validator.js"></script>
+        <script src="assets/js/templates.js"></script>
+        <script src="assets/js/router.js"></script>
+        <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          // Inicializa o router se disponível
+          if (typeof handleNavigation === 'function') handleNavigation();
+
+          // Renderiza conteúdos específicos da página atual
+          const page = document.body.dataset.page;
+          if (page === 'projetos' && typeof renderProjects === 'function') renderProjects();
+          if (page === 'cadastro' && typeof initializeFormValidation === 'function') initializeFormValidation();
+
+          // Intercepta cliques em links com data-link para navegação SPA
+          document.body.addEventListener('click', (e) => {
+            const a = e.target.closest('a[data-link]');
+            if (!a) return;
+            const href = a.getAttribute('href');
+            if (!href) return;
+            // permite âncoras internas (#id) funcionarem sem SPA navigation
+            if (href.startsWith('#')) return;
+            e.preventDefault();
+            if (typeof router !== 'undefined' && typeof router.navigate === 'function') {
+              router.navigate(href);
+            } else if (typeof handleNavigation === 'function') {
+              handleNavigation(href);
+            } else {
+              window.location.href = href;
+            }
+          });
+        });
+
+        // Caso a página seja carregada diretamente com URL física, ainda tentamos executar os inicializadores
+        (function directLoadFallback() {
+          const path = window.location.pathname;
+          if (path.includes('projetos.html') && typeof renderProjects === 'function') renderProjects();
+          if (path.includes('cadastro.html') && typeof initializeFormValidation === 'function') initializeFormValidation();
+        })();
+        </script>
+        <!-- FIM DOS SCRIPTS JS -->
+
+    </div>
+</body>
 </html>

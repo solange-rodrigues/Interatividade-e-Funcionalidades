@@ -3,45 +3,40 @@
    ========================================= */
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap');
 
-/* O Design System (tokens) está definido aqui, centralizado. */
 :root {
-    /* 1.1. Paleta de Cores (Mínimo 8 cores) */
-    --cor-primaria-base: #2E7D32; /* Verde Esmeralda (Principal) */
-    --cor-primaria-claro: #4CAF50; 
-    --cor-primaria-escuro: #1B5E20; 
-    
-    --cor-secundaria-base: #E67E22; /* Laranja (Ação/CTA) */
-    --cor-secundaria-escuro: #D35400; /* Laranja Escuro (Hover) */
-    
-    --cor-neutra-fundo: #F9F9F9; /* Fundo Claro */
-    --cor-neutra-texto: #5D4037; /* Marrom para Textos */
-    --cor-neutra-borda: #E0E0E0; /* Borda/Divisor */
-    
-    /* 1.2. Tipografia (Mínimo 5 tamanhos) */
-    --tamanho-texto-xlg: 3rem; /* Título principal Hero */
-    --tamanho-texto-lg: 2rem; /* h1 das páginas */
-    --tamanho-texto-md: 1.5rem; /* h2 */
-    --tamanho-texto-base: 1rem; /* p, li */
-    --tamanho-texto-sm: 0.875rem; /* Rodapé, notas */
-    
-    /* 1.3. Espaçamento Modular (Múltiplos de 8px) */
+    --cor-primaria-base: #2E7D32;
+    --cor-primaria-claro: #4CAF50;
+    --cor-primaria-escuro: #1B5E20;
+
+    --cor-secundaria-base: #E67E22;
+    --cor-secundaria-escuro: #D35400;
+
+    --cor-neutra-fundo: #F9F9F9;
+    --cor-neutra-texto: #5D4037;
+    --cor-neutra-borda: #E0E0E0;
+
+    --tamanho-texto-xlg: 3rem;
+    --tamanho-texto-lg: 2rem;
+    --tamanho-texto-md: 1.5rem;
+    --tamanho-texto-base: 1rem;
+    --tamanho-texto-sm: 0.875rem;
+
     --espaco-xs: 8px;
-    --espaco-sm: 16px; 
+    --espaco-sm: 16px;
     --espaco-md: 24px;
     --espaco-lg: 32px;
     --espaco-xl: 48px;
     --espaco-xxl: 64px;
-    
-    /* 1.4. Outras Variáveis */
+
     --raio-borda: 8px;
     --sombra-padrao: 0 4px 8px rgba(0,0,0,0.1);
     --sombra-elevada: 0 8px 16px rgba(0,0,0,0.15);
 }
 
-
 /* =========================================
-   2. GERAL E ESTRUTURA (APLICANDO VARIÁVEIS)
+   2. GERAL E ESTRUTURA
    ========================================= */
+* { box-sizing: border-box; }
 
 body {
     font-family: 'Nunito', sans-serif;
@@ -73,40 +68,41 @@ h1, h2 {
     color: var(--cor-primaria-base);
     text-align: center;
     font-weight: 800;
+    margin: 0 0 var(--espaco-md) 0;
 }
 
-h1 { 
-    font-size: var(--tamanho-texto-lg); 
-    margin-bottom: var(--espaco-lg); 
+h1 {
+    font-size: var(--tamanho-texto-lg);
+    margin-bottom: var(--espaco-lg);
 }
-h2 { 
-    font-size: var(--tamanho-texto-md); 
-    margin-bottom: var(--espaco-md); 
+h2 {
+    font-size: var(--tamanho-texto-md);
+    margin-bottom: var(--espaco-md);
 }
-
 
 /* =========================================
-   3. CABEÇALHO (HEADER) - GRID E FLEXBOX
+   3. CABEÇALHO (HEADER)
    ========================================= */
 .site-header {
-    /* Utilizando CSS Grid para a estrutura principal do cabeçalho */
     display: grid;
     grid-template-columns: 220px 1fr;
     align-items: center;
     padding: var(--espaco-sm) 0;
     border-bottom: 1px solid var(--cor-neutra-borda);
+    gap: var(--espaco-sm);
 }
 
 .site-header img {
-    width: 200px; 
+    width: 200px;
+    max-width: 100%;
 }
 
-/* Navegação (Utilizando Flexbox) */
+/* Navegação (Flex) */
 header nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    display: flex; /* Flexbox */
+    display: flex;
     justify-content: flex-end;
     gap: var(--espaco-md);
 }
@@ -124,11 +120,10 @@ header nav a:hover {
     color: var(--cor-secundaria-base);
 }
 
-/* --- Menu Dropdown (Submenu) --- */
+/* Dropdown */
 .dropdown {
     position: relative;
 }
-
 .dropdown-content {
     display: none;
     position: absolute;
@@ -136,17 +131,13 @@ header nav a:hover {
     min-width: 200px;
     box-shadow: var(--sombra-padrao);
     z-index: 10;
-    top: 100%; 
+    top: 100%;
     left: 0;
     border-radius: var(--raio-borda);
     padding: var(--espaco-xs) 0;
     border: 1px solid var(--cor-neutra-borda);
 }
-
-.dropdown-content li {
-    padding: 0;
-}
-
+.dropdown-content li { padding: 0; }
 .dropdown-content a {
     color: var(--cor-neutra-texto);
     padding: var(--espaco-xs) var(--espaco-sm);
@@ -154,22 +145,21 @@ header nav a:hover {
     font-weight: 400;
     font-size: var(--tamanho-texto-base);
 }
-
 .dropdown-content a:hover {
     background-color: var(--cor-neutra-fundo);
     color: var(--cor-primaria-escuro);
 }
-
-.dropdown:hover .dropdown-content {
-    display: block; 
+/* Acessibilidade: abre também no foco */
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
+    display: block;
 }
 
-
 /* =========================================
-   4. SEÇÃO DE DESTAQUE (HERO)
+   4. HERO
    ========================================= */
 .hero {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/foto-principal.png');
+    background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('../img/foto-principal.png');
     background-size: cover;
     background-position: center;
     color: white;
@@ -178,14 +168,11 @@ header nav a:hover {
     border-radius: var(--raio-borda);
     margin-top: var(--espaco-lg);
 }
-
 .hero h1 {
     font-size: var(--tamanho-texto-xlg);
     text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
-    color: white;
     margin-bottom: var(--espaco-md);
 }
-
 .hero p {
     font-size: 1.2rem;
     max-width: 600px;
@@ -193,7 +180,7 @@ header nav a:hover {
 }
 
 /* =========================================
-   5. COMPONENTES E BOTÕES (CTA, Cards, Alerts, Badges)
+   5. COMPONENTES E BOTÕES
    ========================================= */
 .cta-button {
     display: inline-block;
@@ -208,59 +195,53 @@ header nav a:hover {
     font-size: var(--tamanho-texto-base);
     text-transform: uppercase;
 }
-
 .cta-button:hover {
     background-color: var(--cor-secundaria-escuro);
     transform: translateY(-2px);
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
+.cta-button:active { transform: translateY(0); }
 
-.cta-button:active {
-    transform: translateY(0);
-}
-
-/* --- Cards de Projetos (Grid) --- */
+/* Projects grid */
 .projects-grid {
     display: grid;
-    /* Grid Adaptável (Auto-fit) - Melhor responsividade */
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: var(--espaco-lg);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--espaco-xl);
     margin-top: var(--espaco-xl);
+    justify-content: center;
 }
-
 .card {
     background-color: white;
     border-radius: var(--raio-borda);
     overflow: hidden;
     box-shadow: var(--sombra-padrao);
     transition: transform 0.3s, box-shadow 0.3s;
-    display: flex; 
+    display: flex;
     flex-direction: column;
 }
-
 .card:hover {
     transform: translateY(-5px);
     box-shadow: var(--sombra-elevada);
 }
-
 .card img {
     height: 200px;
+    width: 100%;
     object-fit: cover;
 }
-
 .card article {
     padding: var(--espaco-md);
     flex-grow: 1;
 }
-
 .card h2 {
     margin-top: 0;
     text-align: left;
-    font-size: 1.3rem; 
+    font-size: 1.3rem;
     margin-bottom: var(--espaco-sm);
 }
+.card-link { text-decoration: none; color: inherit; display: block; }
+.card-link:focus { outline: 3px solid rgba(46,125,50,0.12); border-radius: 6px; }
 
-/* Chamada para Ação (Página de Projetos) */
+/* Call to action section */
 .call-to-action {
     text-align: center;
     background-color: #f0f4f0;
@@ -269,30 +250,21 @@ header nav a:hover {
     margin-top: var(--espaco-xxl);
 }
 
-/* --- Componente: Badge / Tag --- */
+/* Badges */
 .badge {
     display: inline-block;
     padding: var(--espaco-xs) var(--espaco-sm);
-    border-radius: 15px; 
+    border-radius: 15px;
     font-size: var(--tamanho-texto-sm);
     font-weight: 700;
     text-transform: uppercase;
-    margin-right: var(--espaco-xs); 
+    margin-right: var(--espaco-xs);
     margin-bottom: var(--espaco-xs);
 }
+.badge-success { background-color: var(--cor-primaria-claro); color: white; }
+.badge-info { background-color: #3498DB; color: white; }
 
-.badge-success {
-    background-color: var(--cor-primaria-claro);
-    color: white;
-}
-
-.badge-info {
-    background-color: #3498DB; 
-    color: white;
-}
-
-
-/* --- Componente: Feedback / Alert --- */
+/* Alerts */
 .alert {
     padding: var(--espaco-sm) var(--espaco-md);
     border-radius: var(--raio-borda);
@@ -301,15 +273,12 @@ header nav a:hover {
     font-weight: 700;
     border: 1px solid transparent;
 }
-
-.alert-success {
-    background-color: #D4EDDA; 
-    color: #155724; 
-    border-color: #C3E6CB;
-}
+.alert-success { background-color: #D4EDDA; color: #155724; border-color: #C3E6CB; }
+.alert-error { background-color: #F8D7DA; color: #721C24; border-color: #F5C6CB; }
+.app-alert { margin: var(--espaco-md) 0; }
 
 /* =========================================
-   6. FORMULÁRIO ESTILIZADO E VALIDAÇÃO
+   6. FORMULÁRIO E VALIDAÇÃO
    ========================================= */
 form {
     background-color: white;
@@ -319,31 +288,29 @@ form {
     box-shadow: var(--sombra-padrao);
     max-width: 800px;
 }
-
 form fieldset {
     border: 1px solid var(--cor-neutra-borda);
     border-radius: var(--raio-borda);
     margin-bottom: var(--espaco-lg);
     padding: var(--espaco-md);
 }
-
 form legend {
     font-weight: bold;
     color: var(--cor-primaria-escuro);
     padding: 0 var(--espaco-xs);
     font-size: 1.1rem;
 }
-
 form label {
     display: block;
     margin-bottom: var(--espaco-xs);
     font-weight: 700;
 }
-
 form input[type="text"],
 form input[type="email"],
 form input[type="tel"],
-form input[type="date"] {
+form input[type="date"],
+form textarea,
+form select {
     width: 100%;
     padding: var(--espaco-sm);
     margin-bottom: var(--espaco-sm);
@@ -352,26 +319,31 @@ form input[type="date"] {
     box-sizing: border-box;
     transition: border-color 0.3s, box-shadow 0.3s;
 }
+form textarea { min-height: 120px; resize: vertical; }
 
-/* Validação Visual (Focus e Requerido) */
-form input:focus {
+form input:focus, form textarea:focus, form select:focus {
     border-color: var(--cor-secundaria-base);
-    box-shadow: 0 0 0 2px rgba(230, 126, 34, 0.2);
+    box-shadow: 0 0 0 2px rgba(230,126,34,0.2);
     outline: none;
 }
 
-/* Estilo para campos inválidos */
+/* Visual validation */
 form input:required:invalid:not(:focus):not(:placeholder-shown) {
-    border-color: #E74C3C; 
+    border-color: #E74C3C;
 }
-
-form button {
-    margin-top: var(--espaco-sm);
+.input-error {
+    border: 2px solid #E74C3C !important;
+    box-shadow: 0 0 0 3px rgba(231,76,60,0.06);
 }
-
+.field-error {
+    color: #721C24;
+    margin-top: calc(var(--espaco-xs) / 2);
+    margin-bottom: var(--espaco-sm);
+    font-weight: 700;
+}
 
 /* =========================================
-   7. RODAPÉ (FOOTER)
+   7. RODAPÉ
    ========================================= */
 footer {
     border-top: 1px solid var(--cor-neutra-borda);
@@ -380,7 +352,6 @@ footer {
     text-align: center;
     background-color: white;
 }
-
 footer nav ul {
     list-style-type: none;
     padding: 0;
@@ -389,71 +360,50 @@ footer nav ul {
     gap: var(--espaco-md);
     margin-bottom: var(--espaco-md);
 }
-
 footer nav a {
     text-decoration: none;
     color: var(--cor-secundaria-base);
     font-size: var(--tamanho-texto-sm);
 }
-
-footer nav a:hover {
-    text-decoration: underline;
-}
-
-footer p {
-    font-size: var(--tamanho-texto-sm);
-    color: #888;
-}
-
+footer nav a:hover { text-decoration: underline; }
+footer p { font-size: var(--tamanho-texto-sm); color: #888; }
 
 /* =========================================
-   8. BREAKPOINTS RESPONSIVOS (MÍNIMO 5)
+   8. BREAKPOINTS RESPONSIVOS
    ========================================= */
-
-/* Dispositivo Ultra-Pequeno (320px) */
+/* Ultra-Pequeno (320px) */
 @media (max-width: 320px) {
-    .site-header img {
-        width: 150px;
-    }
+    .site-header img { width: 150px; }
 }
 
 /* Mobile Padrão (<= 480px) */
 @media (max-width: 480px) {
-    
     h1 { font-size: 1.8rem; }
     h2 { font-size: 1.3rem; }
-    
     .hero { padding: 60px var(--espaco-sm); }
     .hero h1 { font-size: 2.2rem; }
-    
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    /* Navegação Mobile */
+    .projects-grid { grid-template-columns: 1fr; gap: var(--espaco-lg); }
     .site-header {
         grid-template-columns: 1fr;
-        grid-template-areas: "logo" "nav"; 
+        grid-template-areas: "logo" "nav";
         text-align: center;
         gap: var(--espaco-sm);
     }
-    
-    header nav { 
-        grid-area: nav;
-    } 
-
+    header nav { grid-area: nav; }
     header nav ul {
         flex-direction: column;
         align-items: center;
         gap: var(--espaco-xs);
     }
-
     .dropdown-content {
         position: static;
         box-shadow: none;
         border: none;
         padding-left: var(--espaco-md);
     }
+    .card img { height: 160px; }
+    header nav ul { justify-content: center; }
+    form { padding: var(--espaco-md); }
 }
 
 /* Mobile Grande / Tablet Pequeno (600px) */
@@ -463,34 +413,38 @@ footer p {
         gap: var(--espaco-sm);
         padding: var(--espaco-md) 0;
     }
-    
-    header nav ul {
-        justify-content: center;
-    }
-    
-    form {
-        padding: var(--espaco-md);
-    }
 }
 
 /* Tablet Padrão (768px) */
 @media (max-width: 768px) {
     .site-header {
-        grid-template-columns: 1fr; 
+        grid-template-columns: 1fr;
         gap: var(--espaco-sm);
     }
-    header nav ul {
-        justify-content: center;
-    }
-
-    .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+    header nav ul { justify-content: center; }
+    .projects-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* Desktop Pequeno (992px) */
 @media (max-width: 992px) {
-    .container {
-        padding: 0 var(--espaco-md);
-    }
+    .projects-grid { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* Desktop Médio (1200px+) */
+@media (min-width: 1201px) {
+    /* pequenos ajustes para telas largas */
+}
+
+/* =========================================
+   9. Acessibilidade e Foco
+   ========================================= */
+a:focus, button:focus, input:focus, textarea:focus {
+    outline: 3px solid rgba(230,126,34,0.15);
+    outline-offset: 2px;
+}
+
+/* =========================================
+   10. Pequenos Utilities
+   ========================================= */
+.hidden { display: none !important; }
+.text-center { text-align: center; }
