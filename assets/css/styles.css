@@ -439,7 +439,7 @@ footer p { font-size: var(--tamanho-texto-sm); color: #888; }
    9. Acessibilidade e Foco
    ========================================= */
 a:focus, button:focus, input:focus, textarea:focus {
-    outline: 3px solid rgba(230,126,34,0.15);
+    outline: 3px solid rgba(230,126,34,1);
     outline-offset: 2px;
 }
 
