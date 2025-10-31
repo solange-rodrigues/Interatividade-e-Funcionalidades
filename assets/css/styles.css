@@ -184,7 +184,7 @@ header nav a:hover {
    ========================================= */
 .cta-button {
     display: inline-block;
-    background-color: var(--cor-secundaria-base);
+    background-color: var(--cor-primaria-escuro);
     color: white;
     padding: var(--espaco-sm) var(--espaco-lg);
     font-weight: bold;
@@ -196,7 +196,7 @@ header nav a:hover {
     text-transform: uppercase;
 }
 .cta-button:hover {
-    background-color: var(--cor-secundaria-escuro);
+    background-color: var(--cor-primaria-escuro);
     transform: translateY(-2px);
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
@@ -362,7 +362,7 @@ footer nav ul {
 }
 footer nav a {
     text-decoration: none;
-    color: var(--cor-secundaria-base);
+    color: var(--cor-secundaria-escuro);
     font-size: var(--tamanho-texto-sm);
 }
 footer nav a:hover { text-decoration: underline; }
