@@ -4,6 +4,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap');
 
 :root {
+  --cor-fundo-pagina: #F9F9F9;
+  --cor-fundo-componente: #FFFFFF;
+  --cor-texto-principal: #5D4037;
+  --cor-texto-titulos: #2E7D32;
+  --cor-borda-padrao: #E0E0E0;
+
     --cor-primaria-base: #2E7D32;
     --cor-primaria-claro: #4CAF50;
     --cor-primaria-escuro: #1B5E20;
@@ -32,6 +38,34 @@
     --sombra-padrao: 0 4px 8px rgba(0,0,0,0.1);
     --sombra-elevada: 0 8px 16px rgba(0,0,0,0.15);
 }
+/* =========================================
+   DEFINIÇÕES DE TEMAS
+   ========================================== */
+
+:root {
+  --cor-fundo-pagina: #F9F9F9;
+  --cor-fundo-componente: #FFFFFF;
+  --cor-texto-principal: #5D4037;
+  --cor-texto-titulos: #2E7D32;
+  --cor-borda-padrao: #E0E0E0;
+}
+
+.dark-mode {
+  --cor-fundo-pagina: #121212;
+  --cor-fundo-componente: #1E1E1E;
+  --cor-texto-principal: #E0E0E0;
+  --cor-texto-titulos: #4CAF50; /* Usando seu verde claro */
+  --cor-borda-padrao: #424242;
+}
+
+.high-contrast-mode {
+  --cor-fundo-pagina: #000000;
+  --cor-fundo-componente: #000000;
+  --cor-texto-principal: #FFFFFF;
+  --cor-texto-titulos: #FFFF00; /* Amarelo brilhante */
+  --cor-borda-padrao: #FFFFFF;
+}
+
 
 /* =========================================
    2. GERAL E ESTRUTURA
@@ -41,8 +75,8 @@
 body {
     font-family: 'Nunito', sans-serif;
     line-height: 1.6;
-    color: var(--cor-neutra-texto);
-    background-color: var(--cor-neutra-fundo);
+    color: var(--cor-texto-principal);
+    background-color: var(--cor-fundo-pagina);
     margin: 0;
     padding: 0;
     font-size: var(--tamanho-texto-base);
@@ -65,7 +99,7 @@ section {
 }
 
 h1, h2 {
-    color: var(--cor-primaria-base);
+    color: var(--cor-texto-titulos);
     text-align: center;
     font-weight: 800;
     margin: 0 0 var(--espaco-md) 0;
@@ -85,10 +119,10 @@ h2 {
    ========================================= */
 .site-header {
     display: grid;
-    grid-template-columns: 220px 1fr;
+    grid-template-columns: 220px 1fr auto;
     align-items: center;
     padding: var(--espaco-sm) 0;
-    border-bottom: 1px solid var(--cor-neutra-borda);
+    border-bottom: 1px solid var(--cor-borda-padrao);
     gap: var(--espaco-sm);
 }
 
@@ -109,7 +143,7 @@ header nav ul {
 
 header nav a {
     text-decoration: none;
-    color: var(--cor-neutra-texto);
+    color: var(--cor-texto-principal);
     font-weight: 700;
     font-size: var(--tamanho-texto-base);
     padding: var(--espaco-xs) var(--espaco-sm);
@@ -127,7 +161,7 @@ header nav a:hover {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: white;
+    background-color: var(--cor-fundo-componente);
     min-width: 200px;
     box-shadow: var(--sombra-padrao);
     z-index: 10;
@@ -135,11 +169,11 @@ header nav a:hover {
     left: 0;
     border-radius: var(--raio-borda);
     padding: var(--espaco-xs) 0;
-    border: 1px solid var(--cor-neutra-borda);
+    border: 1px solid var(--cor-borda-padrao);
 }
 .dropdown-content li { padding: 0; }
 .dropdown-content a {
-    color: var(--cor-neutra-texto);
+    color: var(--cor-texto-principal);
     padding: var(--espaco-xs) var(--espaco-sm);
     display: block;
     font-weight: 400;
@@ -184,7 +218,7 @@ header nav a:hover {
    ========================================= */
 .cta-button {
     display: inline-block;
-    background-color: var(--cor-secundaria-base);
+    background-color: var(--cor-primaria-escuro);
     color: white;
     padding: var(--espaco-sm) var(--espaco-lg);
     font-weight: bold;
@@ -196,7 +230,7 @@ header nav a:hover {
     text-transform: uppercase;
 }
 .cta-button:hover {
-    background-color: var(--cor-secundaria-escuro);
+    background-color: var(--cor-primaria-escuro);
     transform: translateY(-2px);
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
@@ -211,7 +245,7 @@ header nav a:hover {
     justify-content: center;
 }
 .card {
-    background-color: white;
+    background-color: var(--cor-fundo-componente);
     border-radius: var(--raio-borda);
     overflow: hidden;
     box-shadow: var(--sombra-padrao);
@@ -244,7 +278,7 @@ header nav a:hover {
 /* Call to action section */
 .call-to-action {
     text-align: center;
-    background-color: #f0f4f0;
+    background-color: var(--cor-fundo-pagina);
     padding: var(--espaco-xxl) var(--espaco-lg);
     border-radius: var(--raio-borda);
     margin-top: var(--espaco-xxl);
@@ -281,7 +315,7 @@ header nav a:hover {
    6. FORMULÁRIO E VALIDAÇÃO
    ========================================= */
 form {
-    background-color: white;
+    background-color: var(--cor-fundo-componente);
     padding: var(--espaco-xl);
     border-radius: var(--raio-borda);
     margin: var(--espaco-lg) auto 0 auto;
@@ -289,7 +323,7 @@ form {
     max-width: 800px;
 }
 form fieldset {
-    border: 1px solid var(--cor-neutra-borda);
+    border: 1px solid var(--cor-borda-padrao);
     border-radius: var(--raio-borda);
     margin-bottom: var(--espaco-lg);
     padding: var(--espaco-md);
@@ -314,7 +348,7 @@ form select {
     width: 100%;
     padding: var(--espaco-sm);
     margin-bottom: var(--espaco-sm);
-    border: 1px solid var(--cor-neutra-borda);
+    border: 1px solid var(--cor-borda-padrao);
     border-radius: var(--raio-borda);
     box-sizing: border-box;
     transition: border-color 0.3s, box-shadow 0.3s;
@@ -346,11 +380,11 @@ form input:required:invalid:not(:focus):not(:placeholder-shown) {
    7. RODAPÉ
    ========================================= */
 footer {
-    border-top: 1px solid var(--cor-neutra-borda);
+    border-top: 1px solid var(--cor-borda-padrao);
     margin-top: var(--espaco-xxl);
     padding: var(--espaco-lg) 0;
     text-align: center;
-    background-color: white;
+    background-color: var(--cor-fundo-componente);
 }
 footer nav ul {
     list-style-type: none;
@@ -362,7 +396,7 @@ footer nav ul {
 }
 footer nav a {
     text-decoration: none;
-    color: var(--cor-secundaria-base);
+    color: var(--cor-secundaria-escuro);
     font-size: var(--tamanho-texto-sm);
 }
 footer nav a:hover { text-decoration: underline; }
@@ -439,7 +473,7 @@ footer p { font-size: var(--tamanho-texto-sm); color: #888; }
    9. Acessibilidade e Foco
    ========================================= */
 a:focus, button:focus, input:focus, textarea:focus {
-    outline: 3px solid rgba(230,126,34,0.15);
+    outline: 3px solid rgba(230,126,34,1);
     outline-offset: 2px;
 }
 
@@ -448,3 +482,27 @@ a:focus, button:focus, input:focus, textarea:focus {
    ========================================= */
 .hidden { display: none !important; }
 .text-center { text-align: center; }
+
+/* =========================================
+   11. SELETOR DE TEMAS (THEME SWITCHER)
+   ========================================== */
+
+.theme-switcher {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-xs);
+}
+
+.theme-switcher label {
+  font-size: var(--tamanho-texto-sm);
+  color: var(--cor-texto-principal);
+  margin-bottom: 0; /* Sobrescreve o margin-bottom do form */
+}
+
+.theme-switcher select {
+  padding: var(--espaco-xs);
+  border: 1px solid var(--cor-borda-padrao);
+  border-radius: var(--raio-borda);
+  background-color: var(--cor-fundo-componente);
+  color: var(--cor-texto-principal);
+}
