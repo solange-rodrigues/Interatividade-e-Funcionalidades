@@ -1,114 +1,105 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="A ONG Anjos de Patas atua no resgate e adoção responsável de cães e gatos. Conheça nossos projetos, seja um voluntário e ajude-nos a salvar vidas!">
-    <meta name="keywords" content="ONG, animais, resgate, adoção, cães, gatos, vira-lata, voluntariado">
+  <meta name="description" content="A ONG Anjos de Patas atua no resgate e adoção responsável de cães e gatos. Conheça nossos projetos, seja um voluntário e ajude-nos a salvar vidas!">
+  <meta name="keywords" content="ONG, animais, resgate, adoção, cães, gatos, vira-lata, voluntariado">
 
-    <link rel="stylesheet" href="assets/css/styles.css">
-    
-    <title>ONG Anjos de Patas - Resgate e Adoção de Animais</title> 
+  <link rel="stylesheet" href="assets/css/styles.css">
+  
+  <title>ONG Anjos de Patas - Resgate e Adoção de Animais</title> 
 </head>
 
 <body data-page="index">
+  <div class="container">
 
-    <div class="container">
+    <header class="site-header">
+      <img src="assets/img/logo-animais.png" alt="Logotipo da ONG Anjos de Patas">
+      <nav>
+        <ul>
+          <li><a href="index.html" data-link>Início</a></li>
+          <li class="dropdown">
+            <a href="projetos.html" data-link>Nossos Projetos <span class="arrow">▾</span></a>
+            <ul class="dropdown-content">
+              <li><a href="projetos.html#resgate" data-link>Resgate e Cuidado</a></li>
+              <li><a href="projetos.html#adocao" data-link>Feiras de Adoção</a></li>
+              <li><a href="projetos.html#apoio" data-link>Doação e Apoio</a></li>
+            </ul>
+          </li>
+          <li><a href="cadastro.html" data-link>Participe</a></li>
+        </ul>
+      </nav>
 
-        <header class="site-header">
-            <img src="assets/img/logo-animais.png" alt="Logotipo da ONG Anjos de Patas">
-            <nav>
-                <ul>
-                    <li><a href="index.html" data-link>Início</a></li>
-                    
-                    <li class="dropdown">
-                        <a href="projetos.html" data-link>Nossos Projetos <span class="arrow">▾</span></a>
-                        <ul class="dropdown-content">
-                            <li><a href="projetos.html#resgate" data-link>Resgate e Cuidado</a></li>
-                            <li><a href="projetos.html#adocao" data-link>Feiras de Adoção</a></li>
-                            <li><a href="projetos.html#apoio" data-link>Doação e Apoio</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="cadastro.html" data-link>Participe</a></li>
-                </ul>
-            </nav>
-        </header>
+      <div class="theme-switcher">
+        <label for="themeToggle">Mudar Tema:</label>
+        <select id="themeToggle" title="Selecione um tema de cor">
+          <option value="light">Claro</option>
+          <option value="dark">Escuro</option>
+          <option value="contrast">Alto Contraste</option>
+        </select>
+      </div>
+    </header>
 
-        <main>
-            <section class="hero">
-                <h1>Transformando vidas, uma patinha de cada vez.</h1>
-                <p>Resgatando, cuidando e encontrando lares cheios de amor para animais em situação de vulnerabilidade.</p>
-                <a href="projetos.html" class="cta-button" data-link>Conheça Nossos Projetos</a>
-            </section>
-            
-            <section style="padding: 0; text-align: center;">
-                <h2>Exemplos de Componentes</h2>
+    <main>
+      <section class="hero">
+        <h1>Transformando vidas, uma patinha de cada vez.</h1>
+        <p>Resgatando, cuidando e encontrando lares cheios de amor para animais em situação de vulnerabilidade.</p>
+        <a href="projetos.html" class="cta-button" data-link>Conheça Nossos Projetos</a>
+      </section>
+      
+      <section style="padding: 0; text-align: center;">
+        <h2>Exemplos de Componentes</h2>
+        <div class="alert alert-success container">
+          🎉 Parabéns! Sua contribuição garante vacinas para 10 animais neste mês.
+        </div>
+        <div class="container" style="margin-top: 20px;">
+          <span class="badge badge-success">Adoção</span>
+          <span class="badge badge-info">Voluntariado</span>
+          <span class="badge badge-success">Resgate</span>
+        </div>
+      </section>
 
-                <div class="alert alert-success container">
-                    🎉 Parabéns! Sua contribuição garante vacinas para 10 animais neste mês.
-                </div>
-                
-                <div class="container" style="margin-top: 20px;">
-                    <span class="badge badge-success">Adoção</span>
-                    <span class="badge badge-info">Voluntariado</span>
-                    <span class="badge badge-success">Resgate</span>
-                </div>
-            </section>
+      <section>
+        <h2>Nossa Missão</h2>
+        <p>Nossa missão é dar uma segunda chance a cães e gatos abandonados, oferecendo cuidado veterinário, abrigo temporário e, o mais importante, a oportunidade de encontrar uma família que os ame de verdade.</p>
+      </section>
 
-            <section>
-                <h2>Nossa Missão</h2>
-                <p>Nossa missão é dar uma segunda chance a cães e gatos abandonados, oferecendo cuidado veterinário, abrigo temporário e, o mais importante, a oportunidade de encontrar uma família que os ame de verdade.</p>
-            </section>
+      <section>
+        <h2>Nossos Valores</h2>
+        <ul>
+          <li><strong>Amor:</strong> Dedicação incondicional a cada animal resgatado.</li>
+          <li><strong>Respeito:</strong> Tratamos todos os seres vivos com dignidade.</li>
+          <li><strong>Comunidade:</strong> Acreditamos que juntos podemos fazer a diferença.</li>
+        </ul>
+      </section>
+    </main>
 
-            <section>
-                <h2>Nossos Valores</h2>
-                <ul>
-                    <li><strong>Amor:</strong> Dedicação incondicional a cada animal resgatado.</li>
-                    <li><strong>Respeito:</strong> Tratamos todos os seres vivos com dignidade.</li>
-                    <li><strong>Comunidade:</strong> Acreditamos que juntos podemos fazer a diferença.</li>
-                </ul>
-            </section>
+    <footer>
+      <h2>Entre em Contato</h2>
+      <address>
+        <p><strong>Email:</strong> <a href="mailto:contato@anjosdepatas.org.br">contato@anjosdepatas.org.br</a></p>
+        <p><strong>Telefone/WhatsApp:</strong> (11) 99999-9999</p>
+        <p><strong>Endereço:</strong> Rua dos Animais, 123 - Bairro Esperança, São Paulo - SP</p>
+      </address>
+      <p>&copy; 2025 ONG Anjos de Patas. Todos os direitos reservados.</p>
+    </footer>
 
-            </main>
+  </div>
 
-        <footer>
-            <h2>Entre em Contato</h2>
-            <address>
-                <p><strong>Email:</strong> <a href="mailto:contato@anjosdepatas.org.br">contato@anjosdepatas.org.br</a></p>
-                <p><strong>Telefone/WhatsApp:</strong> <a href="tel:+5511999999999">(11) 99999-9999</a></p>
-                <p><strong>Endereço:</strong> Rua dos Animais, 123 - Bairro Esperança, São Paulo - SP</p>
-                <p>Nossas feiras de adoção acontecem aos sábados na Praça da Cidade!</p>
-            </address>
-        </footer>
-
-    </div> <script src="assets/js/validator.js"></script>
-    <script src="assets/js/templates.js"></script>
-    <script src="assets/js/router.js"></script>
-    <script>
+  <!-- Scripts JS -->
+   <script src="assets/js/theme.js"></script>
+<script src="assets/js/validator.js"></script>
+<script src="assets/js/templates.js"></script>
+<script src="assets/js/router.js"></script>
+  <script>
     document.addEventListener('DOMContentLoaded', () => {
       if (typeof handleNavigation === 'function') handleNavigation();
-
       const page = document.body.dataset.page;
-      if (page === 'cadastro' && typeof initializeFormValidation === 'function') initializeFormValidation();
       if (page === 'projetos' && typeof renderProjects === 'function') renderProjects();
-
-      // Global link interception for SPA navigation (preserves href for SEO/accessibility)
-      document.body.addEventListener('click', (e) => {
-        const a = e.target.closest('a[data-link]');
-        if (!a) return;
-        const href = a.getAttribute('href');
-        if (!href) return;
-        e.preventDefault();
-        if (typeof router !== 'undefined' && typeof router.navigate === 'function') {
-          router.navigate(href);
-        } else if (typeof handleNavigation === 'function') {
-          handleNavigation(href);
-        } else {
-          window.location.href = href;
-        }
-      });
+      if (page === 'cadastro' && typeof initializeFormValidation === 'function') initializeFormValidation();
     });
-    </script>
+  </script>
 </body>
 </html>

@@ -85,4 +85,3 @@ function renderProjects() {
 
 // Expor globalmente para o router.js
 window.renderProjects = renderProjects;
-```
